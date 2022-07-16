@@ -72,4 +72,10 @@ public class GameManager : MonoBehaviour
     public int GetMoney() {
         return money;
     }
+
+    public void AddInGameItem(GameObject sprite) {
+        // sprite is a UI image, essentially. 
+        GameCanvasController gameCC = FindObjectOfType<GameCanvasController>();
+        gameCC.AddInGameItem(sprite);
+    }
 }

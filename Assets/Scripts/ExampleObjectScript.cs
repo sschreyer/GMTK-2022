@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExampleObjectScript : MonoBehaviour
 {
     [SerializeField] ItemSO item; 
+    [SerializeField] GameObject sprite; 
 
     public ItemSO GetItem() {
         return item;
@@ -21,7 +22,10 @@ public class ExampleObjectScript : MonoBehaviour
     void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
             Debug.Log("I can't steal it!");
-            other.GetComponent<PlayerMovement>().SetClosestStealable(null);
+            PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
+            playerMovement.SetClosestStealable(null);
+            // TODO: implement this function
+            GameManager.Instance.AddInGameItem(sprite);
         }
     }
 }
