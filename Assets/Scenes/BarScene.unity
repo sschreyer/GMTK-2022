@@ -692,6 +692,7 @@ GameObject:
   - component: {fileID: 1179768212}
   - component: {fileID: 1179768211}
   - component: {fileID: 1179768210}
+  - component: {fileID: 1179768213}
   m_Layer: 0
   m_Name: ExampleObject
   m_TagString: Stealable
@@ -782,3 +783,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1179768213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179768209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3539b5e7cb45e046afe1fa3f31f5eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 9460446cf645017428642e075216b126, type: 2}
