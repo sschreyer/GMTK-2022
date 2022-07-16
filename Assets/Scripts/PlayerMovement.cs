@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
             // to the obj as well as data.
             ExampleObjectScript exObjScr = closestStealable.GetComponent<ExampleObjectScript>();
             GameManager.Instance.AddItem(exObjScr.GetItem());
-            GameManager.Instance.SetA(5);
             Debug.Log("Stolen " + closestStealable.name + "!!");
             Destroy(closestStealable);
             closestStealable = null;

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     List<ItemSO> items;
-    int a; 
+    int money; 
 
     void Awake() {
         if (!Instance)
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     void Start() {
         items = new List<ItemSO>();
-        a = 0;
+        money = 0;
     }
 
     public void StartGame()
@@ -46,14 +46,6 @@ public class GameManager : MonoBehaviour
             return; 
         }
         items.Add(item);
-        // ItemSO new_item = Instantiate(item);
-        // DontDestroyOnLoad(new_item);
-        // Debug.Log(new_item);
-        // this.items.Add(new_item);
-    }
-
-    public void SetA(int a) {
-        this.a = a;
     }
 
     public List<ItemSO> GetItems() 
@@ -63,17 +55,20 @@ public class GameManager : MonoBehaviour
 
     public void PrintItems() {
 
-        Debug.Log(a);
         foreach (ItemSO itemSO in items) {
             Debug.Log(itemSO.GetItem());
         }
     }
 
-    // public InventorySO GetInventory() {
-    //     return inventory;
-    // }
+    public int GetTotalValue() {
+        int total = 0;
+        foreach (ItemSO itemSO in items) {
+            total += itemSO.GetValue();
+        }
+        return total;
+    }
 
-    // public void SetInventory(InventorySO inventory) {
-    //     this.inventory = inventory;
-    // }
+    public int GetMoney() {
+        return money;
+    }
 }
