@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExampleEnemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnTriggerEnter2D(Collider2D other) {
+        // Handle "death"
+        if (other.gameObject.tag == "Player") {
+            Debug.Log("Aghhhh we would'ved DIED!!!");
+            // gameManager.UpdateInventory(inventory);
+            // idk if this should be here but it be what it be 
+            SceneManager.LoadScene(2);
+        }
     }
 }
