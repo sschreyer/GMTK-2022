@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BarScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/EndOfDay.unity
+    guid: c62bea654fe65e049938288048af4d5a
   m_configObjects: {}
