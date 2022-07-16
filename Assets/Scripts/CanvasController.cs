@@ -29,6 +29,11 @@ public class CanvasController : MonoBehaviour
     }
 
     private void UpdateFamilyText() {
-
+        List<ItemSO> items = GameManager.Instance.GetItems();
+        foreach (ItemSO item in items) {
+            // get sprite, render on canvas
+            GameObject real_sprite = Instantiate(item.GetSprite());
+            real_sprite.transform.parent = this.gameObject.transform; 
+        }
     }
 }

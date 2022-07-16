@@ -8,6 +8,7 @@ public class ItemSO : ScriptableObject
     [TextArea(2,6)]
     [SerializeField] string item = "Enter new item here";
     [SerializeField] int value = 0;
+    [SerializeField] GameObject sprite; 
 
     public string GetItem() 
     {
@@ -17,5 +18,10 @@ public class ItemSO : ScriptableObject
     public int GetValue() 
     {
         return value;
+    }
+
+    public GameObject GetSprite() 
+    { 
+        return sprite;
     }
 }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: Enter new item here
   value: 5
+  sprite: {fileID: 250759997398443327, guid: 748228c72a99f1a409f120d6ffe013b7, type: 3}

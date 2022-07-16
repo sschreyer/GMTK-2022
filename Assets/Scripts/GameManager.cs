@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     List<ItemSO> items;
     int money; 
     int whichDay; 
+    string gameState; 
 
     void Awake() {
         if (!Instance)
@@ -30,10 +31,18 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        gameState = "bar";
         SceneManager.LoadScene(1);
     }
 
-    public void NextDay() {
+    public void EndDay() 
+    {
+        gameState = "home";
+        SceneManager.LoadScene(2);
+    }
+
+    public void NextDay() 
+    {
         PrintItems();
         SceneManager.LoadScene(1);
     }
@@ -71,6 +80,10 @@ public class GameManager : MonoBehaviour
 
     public int GetMoney() {
         return money;
+    }
+
+    public string GetGameState() {
+        return gameState;
     }
 
     public void AddInGameItem(GameObject sprite) {
