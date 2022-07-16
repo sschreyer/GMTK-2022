@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     List<ItemSO> items;
     int money; 
+    int whichDay; 
 
     void Awake() {
         if (!Instance)
