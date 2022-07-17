@@ -47,7 +47,11 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -14362,9 +14366,8 @@ TextureImporter:
       layer2_197: -261965982
       layer2_467: -1994528835
       layer2_483: -1045097641
-      layer2_520: -1722257668
-      layer2_562: -1236578436
       layer2_622: -1520573465
+      layer2_562: -1236578436
       layer2_551: -1674204483
       layer2_620: 1939628453
       layer2_160: -1130636465
@@ -14982,6 +14985,7 @@ TextureImporter:
       layer2_283: -1952846812
       layer2_189: -1693409204
       layer2_381: -1384540745
+      layer2_520: -1722257668
       layer2_386: -96649937
       layer2_257: -819006021
       layer2_403: 468178281
@@ -14989,8 +14993,8 @@ TextureImporter:
       layer2_617: -967720129
       layer2_252: 451015904
       layer2_78: 1638080888
-      layer2_565: -1496906869
       layer2_651: 825795949
+      layer2_565: -1496906869
       layer2_494: -2089612992
       layer2_227: 1336331882
       layer2_424: -171734343
