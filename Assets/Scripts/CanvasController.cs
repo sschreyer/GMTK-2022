@@ -135,7 +135,7 @@ public class CanvasController : MonoBehaviour
             case MOM:
                 buttonTextComponent = momButton.GetComponentInChildren<TMP_Text>(true);
                 buttonTextComponent.text = buttonText;
-                momText.text = "Your mom is " + condition;
+                momText.text = "Mom: " + condition;
                 if (condition != "healthy" && condition != "dead") {
                     button = momButton.GetComponent<Button>();
                     button.interactable = true;
@@ -144,7 +144,7 @@ public class CanvasController : MonoBehaviour
             case DAD:
                 buttonTextComponent = dadButton.GetComponentInChildren<TMP_Text>(true);
                 buttonTextComponent.text = buttonText;
-                dadText.text = "Your dad is " + condition;
+                dadText.text = "Dad: " + condition;
                 if (condition != "healthy" && condition != "dead") {
                     button = dadButton.GetComponent<Button>();
                     button.interactable = true;
@@ -153,7 +153,7 @@ public class CanvasController : MonoBehaviour
             case BROTHER:
                 buttonTextComponent = brotherButton.GetComponentInChildren<TMP_Text>(true);
                 buttonTextComponent.text = buttonText;
-                brotherText.text = "Your brother is " + condition;
+                brotherText.text = "Brother: " + condition;
                 if (condition != "healthy" && condition != "dead") {
                     button = brotherButton.GetComponent<Button>();
                     button.interactable = true;

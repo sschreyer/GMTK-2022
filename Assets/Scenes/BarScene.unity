@@ -9679,7 +9679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329291723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.43, y: 3.76, z: 0}
+  m_LocalPosition: {x: 12.43, y: 3.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17245,9 +17245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 6948282183670942313, guid: 272a6c696143e0544b4ef510302f109a, type: 3}
-  item2: {fileID: 0}
-  item3: {fileID: 0}
-  item4: {fileID: 0}
+  item2: {fileID: 6948282183670942313, guid: 839e9e37c4a8a8c4fa7574ac43fe3ca1, type: 3}
+  item3: {fileID: 6948282183670942313, guid: 5f46374bfc4b25944bcbd579dc99df8c, type: 3}
+  item4: {fileID: 6948282183670942313, guid: 6433b1278ad074c40a354bcee044bb8f, type: 3}
   items: []
 --- !u!1 &1828780451
 GameObject:
@@ -17333,10 +17333,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-  item2: {fileID: 6948282183670942313, guid: 839e9e37c4a8a8c4fa7574ac43fe3ca1, type: 3}
-  item3: {fileID: 6948282183670942313, guid: 5f46374bfc4b25944bcbd579dc99df8c, type: 3}
-  item4: {fileID: 6948282183670942313, guid: 6433b1278ad074c40a354bcee044bb8f, type: 3}
-  items: []
 --- !u!1 &1905408666
 GameObject:
   m_ObjectHideFlags: 3
@@ -17458,7 +17454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911638477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.43, y: 3.76, z: 0}
+  m_LocalPosition: {x: 12.43, y: 3.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
