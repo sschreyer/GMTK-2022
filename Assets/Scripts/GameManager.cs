@@ -89,11 +89,11 @@ public class GameManager : MonoBehaviour
         items = new List<ItemSO>();
         itemRefs = null;
         money = 0;
-        int whichDay = 0; 
+        whichDay = 0; 
         momState = new Tuple<string, int>("healthy", -1);
         dadState = new Tuple<string, int>("healthy", -1);
         brotherState = new Tuple<string, int>("healthy", -1);
-        bool isStealing = false;
+        isStealing = false;
         List<GameObject> watchers = new List<GameObject>();
         timeoutCoroutine = null;
       
