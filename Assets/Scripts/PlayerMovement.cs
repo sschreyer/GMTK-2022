@@ -58,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
             // since we kinda need to attach a sprite 
             // to the obj as well as data.
             animator.SetTrigger("steal");
-            StartCoroutine(EndStealAnimation());
             GameObject closestStealableObj = closestStealable[closestStealable.Count - 1];
             GameManager.Instance.Steal();
             ExampleObjectScript exObjScr = closestStealableObj.GetComponent<ExampleObjectScript>();
@@ -66,12 +65,6 @@ public class PlayerMovement : MonoBehaviour
             closestStealable.Remove(closestStealableObj);
             Destroy(closestStealableObj);
         }
-    }
-
-    IEnumerator EndStealAnimation()
-    {
-        yield return new WaitForSeconds(0.4f);
-        animator.SetTrigger("steal"); 
     }
 
     public void AddClosestStealable(GameObject obj) {

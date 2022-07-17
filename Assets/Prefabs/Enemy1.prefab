@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 17
+  m_SortingOrder: 20
   m_Sprite: {fileID: -672103038, guid: b5e04f3367b94344cb2cfe498335fd10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -113,16 +113,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.012546107, y: -0.024846643}
-      - {x: -0.054222852, y: -0.013261754}
-      - {x: -0.062545985, y: -0.03}
-      - {x: -0.02089972, y: -0.07251533}
-      - {x: -0.054043174, y: 0.025789201}
-      - {x: 0.0641616, y: -0.025092036}
-      - {x: -0.049880534, y: 0.03794723}
-      - {x: 1.5763515, y: -0.17657262}
-      - {x: 2.8769832, y: -0.5517756}
-      - {x: 0.8184647, y: -2.4755774}
+    - - {x: 1.8014747, y: -2.4236507}
+      - {x: 1.3659647, y: -2.555278}
+      - {x: 0.8802673, y: -1.67694}
+      - {x: -0.09250588, y: -0.012843549}
+      - {x: 0.31592166, y: -0.09355432}
+      - {x: 2.7851927, y: -0.50246596}
+      - {x: 2.8382313, y: -0.8690632}
+      - {x: 2.8055892, y: -1.2625983}
+      - {x: 2.662165, y: -1.5781295}
+      - {x: 2.2386522, y: -2.1652844}
 --- !u!95 &8652808082834681936
 Animator:
   serializedVersion: 4
@@ -179,14 +179,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959645003154492881}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.81, y: -1.04, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.69435257, w: 0.719635}
+  m_LocalPosition: {x: 1.31, y: -1.28, z: 0}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1959645002314634041}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -87.951}
 --- !u!212 &1959645003154492883
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -227,9 +227,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 18
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 7268bf53c2437994998bc98186505dbe, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
