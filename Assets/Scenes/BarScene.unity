@@ -16759,7 +16759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe94ce38cfb1924799ba2e37cba366e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 10
+  runSpeed: 2.5
 --- !u!50 &1176624897
 Rigidbody2D:
   serializedVersion: 4
@@ -17028,7 +17028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1407958979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17148,6 +17148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 6948282183670942313, guid: 272a6c696143e0544b4ef510302f109a, type: 3}
+  item2: {fileID: 0}
+  item3: {fileID: 0}
+  item4: {fileID: 0}
+  items: []
 --- !u!1 &1828780451
 GameObject:
   m_ObjectHideFlags: 0
@@ -17232,9 +17236,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-  item2: {fileID: 6948282183670942313, guid: 839e9e37c4a8a8c4fa7574ac43fe3ca1, type: 3}
-  item3: {fileID: 6948282183670942313, guid: 5f46374bfc4b25944bcbd579dc99df8c, type: 3}
-  item4: {fileID: 6948282183670942313, guid: 6433b1278ad074c40a354bcee044bb8f, type: 3}
 --- !u!1 &1905408666
 GameObject:
   m_ObjectHideFlags: 3
