@@ -77,10 +77,11 @@ public class CanvasController : MonoBehaviour
                 buttonText = "$" + GetConditionCost(condition).ToString();
             } else {
                 newState = RandomConditionGenerate(whichDay);
+                buttonText = "$" + GetConditionCost(newState.Item1).ToString();
             }
             GameManager.Instance.UpdateFamilyState(i, newState);
 
-            UpdateFamilyMemberText(i, condition, buttonText);
+            UpdateFamilyMemberText(i, newState.Item1, buttonText);
         }
 
     }

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     List<ItemSO> items;
     int money; 
-    int whichDay; 
+    int whichDay = 0; 
     string gameState; 
     bool isStealing = false;
     List<GameObject> watchers = new List<GameObject>();
@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     public void NextDay() 
     {
         PrintItems();
+        whichDay++;
         SceneManager.LoadScene(1);
     }
 
@@ -163,13 +164,13 @@ public class GameManager : MonoBehaviour
 
     public void UpdateFamilyState(int member, Tuple<string, int> state) {
         switch(member) {
-            case 1:
+            case 0:
                 momState = state;
                 break;
-            case 2:
+            case 1:
                 dadState = state;
                 break;
-            case 3: 
+            case 2: 
                 brotherState = state;
                 break; 
             default:
@@ -179,11 +180,11 @@ public class GameManager : MonoBehaviour
 
     public Tuple<string, int> GetFamilyState(int member) {
          switch(member) {
-            case 1:
+            case 0:
                 return momState;
-            case 2:
+            case 1:
                 return dadState;
-            case 3: 
+            case 2: 
                 return brotherState; 
             default:
                 return null;
