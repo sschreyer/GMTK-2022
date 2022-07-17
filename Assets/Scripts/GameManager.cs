@@ -192,7 +192,10 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Hide()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.25f);
+        if (watchers.Count > 0) {
+            EndDay();
+        }
         isStealing = false;
     }
 
