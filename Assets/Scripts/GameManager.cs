@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     int whichDay = 0; 
     string gameState; 
     bool isStealing = false;
+    Coroutine timeoutCoroutine = null;
     List<GameObject> watchers = new List<GameObject>();
     // state variables are stored as the conditon 
     // and "turns till death"
@@ -48,10 +49,21 @@ public class GameManager : MonoBehaviour
     {
         gameState = "bar";
         SceneManager.LoadScene(1);
+        timeoutCoroutine = StartCoroutine(EndBar());
+    }
+
+    IEnumerator EndBar()
+    {
+        yield return new WaitForSeconds(30f);
+        timeoutCoroutine = null;
+        EndDay();
     }
 
     public void EndDay() 
     {
+        if (timeoutCoroutine != null) {
+            StopCoroutine(timeoutCoroutine);
+        }
         gameState = "home";
         watchers = new List<GameObject>();
         SceneManager.LoadScene(2);
