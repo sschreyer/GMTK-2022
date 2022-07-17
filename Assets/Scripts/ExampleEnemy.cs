@@ -32,9 +32,10 @@ public class ExampleEnemy : MonoBehaviour
     {
         int s = Random.Range(2,7);
         yield return new WaitForSeconds(s);
-        Vector3 theScale = transform.localScale;
-        theScale.y *= -1;
-        transform.localScale = theScale;
+
+        int n = Random.Range(0,3);
+        Quaternion turn = Quaternion.Euler(0, 0, 45 + (90 * n));
+        transform.rotation = turn;
         isWaiting = false;
     }
 }
