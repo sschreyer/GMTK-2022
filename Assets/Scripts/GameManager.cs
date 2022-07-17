@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     string gameState; 
     bool isStealing = false;
     List<GameObject> watchers = new List<GameObject>();
+    Coroutine timeoutCoroutine = null;
     // state variables are stored as the conditon 
     // and "turns till death"
     // how bad each condition is is dealt with in the 
@@ -21,8 +22,6 @@ public class GameManager : MonoBehaviour
     Tuple<string, int> momState;
     Tuple<string, int> dadState;
     Tuple<string, int> brotherState;
-
-    
 
     void Awake() {
         if (!Instance)
@@ -45,6 +44,13 @@ public class GameManager : MonoBehaviour
         brotherState = new Tuple<string, int>("healthy", -1);
     }
 
+    IEnumerator EndBar()
+    {
+        yield return new WaitForSeconds(60f);
+        timeoutCoroutine = null;
+        EndDay();
+    }
+
     void Update() {
         if (itemRefs != null && itemRefs.Count == 0) {
             EndDay();
@@ -54,11 +60,15 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         gameState = "bar";
+        timeoutCoroutine = StartCoroutine(EndBar());
         SceneManager.LoadScene(1);
     }
 
     public void EndDay() 
     {
+        if (timeoutCoroutine != null) {
+            StopCoroutine(timeoutCoroutine);
+        }
         itemRefs = null;
         gameState = "home";
         watchers = new List<GameObject>();
@@ -69,6 +79,7 @@ public class GameManager : MonoBehaviour
     {
         PrintItems();
         whichDay++;
+        timeoutCoroutine = StartCoroutine(EndBar());
         SceneManager.LoadScene(1);
     }
 
@@ -84,6 +95,7 @@ public class GameManager : MonoBehaviour
         brotherState = new Tuple<string, int>("healthy", -1);
         bool isStealing = false;
         List<GameObject> watchers = new List<GameObject>();
+        timeoutCoroutine = null;
       
         SceneManager.LoadScene(0);
     }
