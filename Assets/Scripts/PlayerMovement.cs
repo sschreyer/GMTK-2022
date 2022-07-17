@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator EndStealAnimation()
     {
         yield return new WaitForSeconds(0.4f);
-        animator.SetBool("isStealing", false); 
+        animator.SetTrigger("steal"); 
     }
 
     public void AddClosestStealable(GameObject obj) {
