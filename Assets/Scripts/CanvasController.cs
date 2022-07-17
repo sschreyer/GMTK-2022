@@ -11,6 +11,7 @@ public class CanvasController : MonoBehaviour
     [SerializeField] GameObject dadButton;
     [SerializeField] GameObject brotherButton;
 
+    List<GameObject> itemSprites = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,12 @@ public class CanvasController : MonoBehaviour
         foreach (ItemSO item in items) {
             // get sprite, render on canvas
             GameObject real_sprite = Instantiate(item.GetSprite());
+            // we should offset it based off it's position in the list?
             real_sprite.transform.parent = this.gameObject.transform; 
+            // Note that 40 is an arbitrary constant I picked...
+            Vector2 newPos = new Vector2(-920 +  itemSprites.Count * 100, -500);
+            real_sprite.transform.localPosition = newPos;
+            itemSprites.Add(real_sprite);
         }
     }
 }

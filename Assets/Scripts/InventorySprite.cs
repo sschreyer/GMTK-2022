@@ -8,5 +8,8 @@ public class InventorySprite : MonoBehaviour
         // do stuff - check game state in GameManager,
         // probably
         Debug.Log("Yoooo");
+        string gameState = GameManager.Instance.GetGameState();
+
+        
     }
 }

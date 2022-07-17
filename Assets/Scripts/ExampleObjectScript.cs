@@ -24,8 +24,6 @@ public class ExampleObjectScript : MonoBehaviour
             Debug.Log("I can't steal it!");
             PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
             playerMovement.SetClosestStealable(null);
-            // TODO: implement this function
-            GameManager.Instance.AddInGameItem(sprite);
         }
     }
 }

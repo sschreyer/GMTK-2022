@@ -55,7 +55,12 @@ public class GameManager : MonoBehaviour
             Debug.Log("Item is null!");
             return; 
         }
+
+        // We have a max inv size
+        if (items.Count >= 10) return;
+
         items.Add(item);
+        AddInGameItem(item.GetSprite());
     }
 
     public List<ItemSO> GetItems() 
@@ -84,6 +89,13 @@ public class GameManager : MonoBehaviour
 
     public string GetGameState() {
         return gameState;
+    }
+
+    public void DisplayInGameItems() {
+        GameCanvasController gameCC = FindObjectOfType<GameCanvasController>();
+        foreach(ItemSO item in items) {
+            gameCC.AddInGameItem(item.GetSprite());
+        }
     }
 
     public void AddInGameItem(GameObject sprite) {

@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<CircleCollider2D>();
+        // we need to display in-game items somewhere,
+        // may as well be here...
+        GameManager.Instance.DisplayInGameItems();
     }
 
     // Update is called once per frame
