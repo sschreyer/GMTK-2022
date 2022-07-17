@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     CircleCollider2D bodyCollider;
 
     // data store 
-    GameObject closestStealable = null; 
+    List<GameObject> closestStealable = new List<GameObject>(); 
 
     // Start is called before the first frame update
     void Start()
@@ -38,25 +38,26 @@ public class PlayerMovement : MonoBehaviour
 
     void Steal() {
         if (Input.GetKeyDown(KeyCode.E)) {
-            if (closestStealable == null) return; 
+            if (closestStealable.Count == 0) return; 
 
             // TODO: use scriptable objects or some kind of 
             // ENUM to store these? Not sure which, 
             // since we kinda need to attach a sprite 
             // to the obj as well as data.
+            GameObject closestStealableObj = closestStealable[closestStealable.Count - 1];
             GameManager.Instance.Steal();
-            ExampleObjectScript exObjScr = closestStealable.GetComponent<ExampleObjectScript>();
+            ExampleObjectScript exObjScr = closestStealableObj.GetComponent<ExampleObjectScript>();
             GameManager.Instance.AddItem(exObjScr.GetItem());
-            Debug.Log("Stolen " + closestStealable.name + "!!");
-            Destroy(closestStealable);
-            closestStealable = null;
+            closestStealable.Remove(closestStealableObj);
+            Destroy(closestStealableObj);
         }
     }
 
-    public void SetClosestStealable(GameObject obj) {
-        Debug.Log("obj " + obj);
-        this.closestStealable = obj;
+    public void AddClosestStealable(GameObject obj) {
+        closestStealable.Add(obj);
     }
 
-    
+    public void RemoveClosestStealable(GameObject obj) {
+        closestStealable.Remove(obj);
+    }
 }

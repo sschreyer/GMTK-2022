@@ -15,7 +15,7 @@ public class ExampleObjectScript : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             Debug.Log("I could steal it!");
             Debug.Log(this.gameObject);
-            other.GetComponent<PlayerMovement>().SetClosestStealable(this.gameObject);
+            other.GetComponent<PlayerMovement>().AddClosestStealable(this.gameObject);
         }
     }   
 
@@ -23,7 +23,7 @@ public class ExampleObjectScript : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             Debug.Log("I can't steal it!");
             PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
-            playerMovement.SetClosestStealable(null);
+            playerMovement.RemoveClosestStealable(null);
         }
     }
 }

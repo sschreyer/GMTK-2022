@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     Tuple<string, int> dadState;
     Tuple<string, int> brotherState;
 
+    
+
     void Awake() {
         if (!Instance)
         {
@@ -123,6 +125,10 @@ public class GameManager : MonoBehaviour
         this.money += money;
     }
 
+    public void SubtractMoney(int money) {
+        this.money -= money;
+    }
+
     public void RemoveItem(ItemSO item) {
         items.Remove(item);
     }
@@ -163,15 +169,19 @@ public class GameManager : MonoBehaviour
     }
 
     public void UpdateFamilyState(int member, Tuple<string, int> state) {
+        
         switch(member) {
             case 0:
-                momState = state;
+                Debug.Log("update mom with " + state.Item1);
+                momState =  new Tuple<string,int>(state.Item1, state.Item2);
                 break;
             case 1:
-                dadState = state;
+                Debug.Log("update dad with " + state.Item1);
+                dadState =  new Tuple<string,int>(state.Item1, state.Item2);
                 break;
             case 2: 
-                brotherState = state;
+                Debug.Log("update brother with " + state.Item1);
+                brotherState = new Tuple<string,int>(state.Item1, state.Item2);
                 break; 
             default:
                 break;
@@ -188,7 +198,6 @@ public class GameManager : MonoBehaviour
                 return brotherState; 
             default:
                 return null;
-                break;
         }
     }
 }
