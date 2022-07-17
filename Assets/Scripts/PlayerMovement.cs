@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
             // ENUM to store these? Not sure which, 
             // since we kinda need to attach a sprite 
             // to the obj as well as data.
+            GameManager.Instance.Steal();
             ExampleObjectScript exObjScr = closestStealable.GetComponent<ExampleObjectScript>();
             GameManager.Instance.AddItem(exObjScr.GetItem());
             Debug.Log("Stolen " + closestStealable.name + "!!");

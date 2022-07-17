@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     int money; 
     int whichDay; 
     string gameState; 
+    bool isStealing = false;
+    List<GameObject> watchers = new List<GameObject>();
 
     void Awake() {
         if (!Instance)
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
     public void EndDay() 
     {
         gameState = "home";
+        watchers = new List<GameObject>();
         SceneManager.LoadScene(2);
     }
 
@@ -102,5 +105,44 @@ public class GameManager : MonoBehaviour
         // sprite is a UI image, essentially. 
         GameCanvasController gameCC = FindObjectOfType<GameCanvasController>();
         gameCC.AddInGameItem(sprite);
+    }
+
+    public void AddMoney(int money) {
+        this.money += money;
+    }
+
+    public void RemoveItem(ItemSO item) {
+        items.Remove(item);
+    }
+
+    public void Steal() {
+        this.isStealing = true;
+        // perform a check to see if we're in view of anyone
+        if (watchers.Count > 0) {
+            EndDay();
+        }
+
+        // set timeoout for stealing - 
+        // note I don't really think this does much yet?
+        // may need to modify AddWatcher???
+        StartCoroutine(Hide());        
+    }
+
+    public bool GetIsStealing() {
+        return isStealing;
+    }
+
+    IEnumerator Hide()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isStealing = false;
+    }
+
+    public void AddWatcher(GameObject watcher) {
+        watchers.Add(watcher);
+    }
+
+    public void RemoveWatcher(GameObject watcher) {
+        watchers.Remove(watcher);
     }
 }

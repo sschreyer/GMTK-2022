@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class ExampleEnemy : MonoBehaviour
 {
-    void Start() {
-        StartCoroutine(Wait());        
+    bool isWaiting = false;
+    
+    void Update() {
+        if (!isWaiting) {
+            StartCoroutine(Wait());
+            isWaiting = true;
+        } 
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        // Handle "death"
+        // add to list of watchers
         if (other.gameObject.tag == "Player") {
-            Debug.Log("Aghhhh we would'ved DIED!!!");
-            GameManager.Instance.EndDay();
+            Debug.Log("Entering view");
+            GameManager.Instance.AddWatcher(this.gameObject);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        // remove from list of watchers
+        if (other.gameObject.tag == "Player") {
+            GameManager.Instance.RemoveWatcher(this.gameObject);
         }
     }
 
@@ -23,5 +35,6 @@ public class ExampleEnemy : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.y *= -1;
         transform.localScale = theScale;
+        isWaiting = false;
     }
 }

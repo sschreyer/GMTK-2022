@@ -17,7 +17,7 @@ public class ExampleObjectScript : MonoBehaviour
             Debug.Log(this.gameObject);
             other.GetComponent<PlayerMovement>().SetClosestStealable(this.gameObject);
         }
-    }
+    }   
 
     void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CanvasController : MonoBehaviour
 {
@@ -11,16 +12,15 @@ public class CanvasController : MonoBehaviour
     [SerializeField] GameObject dadButton;
     [SerializeField] GameObject brotherButton;
 
-    List<GameObject> itemSprites = new List<GameObject>();
+    [SerializeField] GameObject sellButton;
+
+    List<ItemSO> itemSprites = new List<ItemSO>();
+    ItemSO currSelecItem = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        int totalValue = GameManager.Instance.GetTotalValue();
-        totalText.text = "Total Value: " + totalValue.ToString();
-
-        int money = GameManager.Instance.GetMoney();
-        moneyText.text = "Money: " + money.ToString();
+        UpdateValueText();
 
         // TODO: Update family text here in future...
         UpdateFamilyText();
@@ -31,6 +31,8 @@ public class CanvasController : MonoBehaviour
 
     private void UpdateFamilyText() {
         List<ItemSO> items = GameManager.Instance.GetItems();
+
+        // why is this in this function?
         foreach (ItemSO item in items) {
             // get sprite, render on canvas
             GameObject real_sprite = Instantiate(item.GetSprite());
@@ -39,7 +41,38 @@ public class CanvasController : MonoBehaviour
             // Note that 40 is an arbitrary constant I picked...
             Vector2 newPos = new Vector2(-920 +  itemSprites.Count * 100, -500);
             real_sprite.transform.localPosition = newPos;
-            itemSprites.Add(real_sprite);
+            itemSprites.Add(item);
         }
+    }
+
+    public void SelectItem(ItemSO item) {
+        int value = item.GetValue();
+        TMP_Text sellText = sellButton.GetComponentInChildren<TMP_Text>(true);
+        sellText.text = "Sell item (" + value.ToString() + ")";
+        currSelecItem = item;
+    }
+
+    public void SellCurrItem() {
+        if (currSelecItem == null) return; 
+
+        TMP_Text sellText = sellButton.GetComponentInChildren<TMP_Text>(true);
+        sellText.text = "Sell item";
+        GameManager.Instance.AddMoney(currSelecItem.GetValue());
+        // currSelecItem = null;
+
+        // TODO: remove item from inventory
+        GameManager.Instance.RemoveItem(currSelecItem);
+        // Reset Scene???
+        SceneManager.LoadScene(2);
+
+        UpdateValueText();
+    }
+
+    void UpdateValueText() {
+        int totalValue = GameManager.Instance.GetTotalValue();
+        totalText.text = "Total Value: " + totalValue.ToString();
+
+        int money = GameManager.Instance.GetMoney();
+        moneyText.text = "Money: " + money.ToString();
     }
 }

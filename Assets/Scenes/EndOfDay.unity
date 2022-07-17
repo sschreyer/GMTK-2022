@@ -1574,7 +1574,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1245867260}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1289505345}
+        m_TargetAssemblyTypeName: CanvasController, Assembly-CSharp
+        m_MethodName: SellCurrItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1245867260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1736,6 +1748,7 @@ MonoBehaviour:
   momButton: {fileID: 0}
   dadButton: {fileID: 0}
   brotherButton: {fileID: 0}
+  sellButton: {fileID: 1245867257}
 --- !u!1 &1565615009
 GameObject:
   m_ObjectHideFlags: 0
