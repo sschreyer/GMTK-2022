@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 175356b3340dc174f940b6b3cec36fde, type: 3}
-  m_Name: New Item
+  m_Name: Money
   m_EditorClassIdentifier: 
   item: Enter new item here
-  value: 5
-  sprite: {fileID: 250759997398443327, guid: 748228c72a99f1a409f120d6ffe013b7, type: 3}
+  value: 1
+  sprite: {fileID: 250759997398443327, guid: 7d4dc7e1f04adc34d9b708f399a77763, type: 3}
