@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,13 @@ public class GameManager : MonoBehaviour
     string gameState; 
     bool isStealing = false;
     List<GameObject> watchers = new List<GameObject>();
+    // state variables are stored as the conditon 
+    // and "turns till death"
+    // how bad each condition is is dealt with in the 
+    // CanvasController 
+    Tuple<string, int> momState;
+    Tuple<string, int> dadState;
+    Tuple<string, int> brotherState;
 
     void Awake() {
         if (!Instance)
@@ -29,6 +37,9 @@ public class GameManager : MonoBehaviour
     void Start() {
         items = new List<ItemSO>();
         money = 0;
+        momState = new Tuple<string, int>("healthy", -1);
+        dadState = new Tuple<string, int>("healthy", -1);
+        brotherState = new Tuple<string, int>("healthy", -1);
     }
 
     public void StartGame()
@@ -144,5 +155,39 @@ public class GameManager : MonoBehaviour
 
     public void RemoveWatcher(GameObject watcher) {
         watchers.Remove(watcher);
+    }
+
+    public int GetWhichDay() {
+        return whichDay;
+    }
+
+    public void UpdateFamilyState(int member, Tuple<string, int> state) {
+        switch(member) {
+            case 1:
+                momState = state;
+                break;
+            case 2:
+                dadState = state;
+                break;
+            case 3: 
+                brotherState = state;
+                break; 
+            default:
+                break;
+        }
+    }
+
+    public Tuple<string, int> GetFamilyState(int member) {
+         switch(member) {
+            case 1:
+                return momState;
+            case 2:
+                return dadState;
+            case 3: 
+                return brotherState; 
+            default:
+                return null;
+                break;
+        }
     }
 }

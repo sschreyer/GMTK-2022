@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,10 @@ public class CanvasController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI totalText;
     [SerializeField] TextMeshProUGUI moneyText;
+
+    [SerializeField] TextMeshProUGUI momText;
+    [SerializeField] TextMeshProUGUI dadText;
+    [SerializeField] TextMeshProUGUI brotherText;
     [SerializeField] GameObject momButton;
     [SerializeField] GameObject dadButton;
     [SerializeField] GameObject brotherButton;
@@ -16,11 +21,17 @@ public class CanvasController : MonoBehaviour
 
     List<ItemSO> itemSprites = new List<ItemSO>();
     ItemSO currSelecItem = null;
+    const int MOM = 0;
+    const int DAD = 1;
+    const int BROTHER = 2;  
 
     // Start is called before the first frame update
     void Start()
     {
         UpdateValueText();
+
+        UpdateInventory();
+
 
         // TODO: Update family text here in future...
         UpdateFamilyText();
@@ -29,7 +40,7 @@ public class CanvasController : MonoBehaviour
         // assume this by default
     }
 
-    private void UpdateFamilyText() {
+    private void UpdateInventory() {
         List<ItemSO> items = GameManager.Instance.GetItems();
 
         // why is this in this function?
@@ -42,6 +53,107 @@ public class CanvasController : MonoBehaviour
             Vector2 newPos = new Vector2(-920 +  itemSprites.Count * 100, -500);
             real_sprite.transform.localPosition = newPos;
             itemSprites.Add(item);
+        }
+    }
+
+    // TODO: implement
+    private void UpdateFamilyText() {
+        int whichDay = GameManager.Instance.GetWhichDay();
+
+        // odds of a bad event should increase with each day 
+        
+        // get current state of family.
+        for (int i = 0; i < 3; i ++) {
+            Tuple<string, int> state = GameManager.Instance.GetFamilyState(i);
+            string condition = state.Item1;
+            Tuple<string, int> newState = new Tuple<string,int>(condition, state.Item2);
+            string buttonText = "";
+            if (condition != "healthy") {
+                int turnsToLive = state.Item2 - 1;
+                
+                if (turnsToLive < 0) {
+                    condition = "dead";
+                }
+                buttonText = "$" + GetConditionCost(condition).ToString();
+            } else {
+                newState = RandomConditionGenerate(whichDay);
+            }
+            GameManager.Instance.UpdateFamilyState(i, newState);
+
+            UpdateFamilyMemberText(i, condition, buttonText);
+        }
+
+    }
+
+    private void UpdateFamilyMemberText(int member, string condition, string buttonText) {
+        TMP_Text buttonTextComponent;
+        switch(member) {
+            case MOM:
+                buttonTextComponent = momButton.GetComponentInChildren<TMP_Text>(true);
+                buttonTextComponent.text = buttonText;
+                momText.text = "Your mom is " + condition;
+                break;
+            case DAD:
+                buttonTextComponent = dadButton.GetComponentInChildren<TMP_Text>(true);
+                buttonTextComponent.text = buttonText;
+                dadText.text = "Your mom is " + condition;
+                break; 
+            case BROTHER:
+                buttonTextComponent = brotherButton.GetComponentInChildren<TMP_Text>(true);
+                buttonTextComponent.text = buttonText;
+                brotherText.text = "Your mom is " + condition;
+                break;
+            default:
+                break;
+        }
+    }
+
+    // functions as a bad way to store all conditions 
+    // for our reference, as well as their cost to heal!
+    private int GetConditionCost(string condition) {
+        switch (condition) {
+            case "hungry":
+                return 50; 
+            case "sick":
+                return 75;
+            case "very sick":
+                return 100;
+            case "dead":
+                Debug.Log("Death can't be healed");
+                return -1;
+            default:
+                Debug.Log("UNKNOWN CONDITION!!");
+                return -1;
+        }
+    }
+
+    private Tuple<string,int> RandomConditionGenerate(int whichDay) {
+        Tuple<string, int> healthy = new Tuple<string,int>("healthy", -1);
+        int n = 0;
+        switch(whichDay) {
+            case 1:
+                return healthy;
+                break;
+            case 2:
+                // 25% chance for any family member to go hungry
+                n = UnityEngine.Random.Range(0,99);
+                if (n <= 25 - 1) {
+                    return new Tuple<string,int>("hungry", 3);
+                }
+                return healthy; 
+            case 3:
+                n = UnityEngine.Random.Range(0,99);
+                if (n <= 10 - 1) {
+                    return new Tuple<string,int>("sick", 2);
+                }
+
+                if (n >= 10 && n <= 35 - 1) {
+                    return new Tuple<string,int>("hungry", 3);
+                }
+
+                return healthy;
+            default:
+                return healthy;
         }
     }
 

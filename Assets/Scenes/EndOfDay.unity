@@ -1745,9 +1745,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalText: {fileID: 1833651444}
   moneyText: {fileID: 183892855}
-  momButton: {fileID: 0}
-  dadButton: {fileID: 0}
-  brotherButton: {fileID: 0}
+  momText: {fileID: 834460998}
+  dadText: {fileID: 563301967}
+  brotherText: {fileID: 1824731139}
+  momButton: {fileID: 397053832}
+  dadButton: {fileID: 2056766182}
+  brotherButton: {fileID: 181459266}
   sellButton: {fileID: 1245867257}
 --- !u!1 &1565615009
 GameObject:
