@@ -20,6 +20,6 @@ public class NPCSpawner : MonoBehaviour
             prevNumbers.Add(n);
             // set it to the location of the nth child
             GameObject newNpc = Instantiate(npc, children[n]);
-        }   
-    } 
+        }  
+    }
 }
