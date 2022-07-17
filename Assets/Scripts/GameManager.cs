@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     List<ItemSO> items;
+    List<GameObject> itemRefs = null;
     int money; 
     int whichDay = 0; 
     string gameState; 
     bool isStealing = false;
-    Coroutine timeoutCoroutine = null;
     List<GameObject> watchers = new List<GameObject>();
     // state variables are stored as the conditon 
     // and "turns till death"
@@ -45,25 +45,21 @@ public class GameManager : MonoBehaviour
         brotherState = new Tuple<string, int>("healthy", -1);
     }
 
+    void Update() {
+        if (itemRefs != null && itemRefs.Count == 0) {
+            EndDay();
+        }
+    }
+
     public void StartGame()
     {
         gameState = "bar";
         SceneManager.LoadScene(1);
-        timeoutCoroutine = StartCoroutine(EndBar());
-    }
-
-    IEnumerator EndBar()
-    {
-        yield return new WaitForSeconds(30f);
-        timeoutCoroutine = null;
-        EndDay();
     }
 
     public void EndDay() 
     {
-        if (timeoutCoroutine != null) {
-            StopCoroutine(timeoutCoroutine);
-        }
+        itemRefs = null;
         gameState = "home";
         watchers = new List<GameObject>();
         SceneManager.LoadScene(2);
@@ -147,6 +143,10 @@ public class GameManager : MonoBehaviour
 
     public void Steal() {
         this.isStealing = true;
+
+        // remove a reference to some item 
+        itemRefs.RemoveAt(0);
+
         // perform a check to see if we're in view of anyone
         if (watchers.Count > 0) {
             EndDay();
@@ -211,5 +211,9 @@ public class GameManager : MonoBehaviour
             default:
                 return null;
         }
+    }
+
+    public void AddItems(List<GameObject> items) {
+        this.itemRefs = items;
     }
 }

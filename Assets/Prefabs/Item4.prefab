@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6948282183670942312}
   - component: {fileID: -4605376184827865645}
   m_Layer: 0
-  m_Name: ExampleObject
+  m_Name: Item4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 17
-  m_Sprite: {fileID: -1929731085, guid: 344c38dfa18a1e549ae7fa3c406385f0, type: 3}
+  m_Sprite: {fileID: 1364935521, guid: 344c38dfa18a1e549ae7fa3c406385f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3539b5e7cb45e046afe1fa3f31f5eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 9460446cf645017428642e075216b126, type: 2}
-  sprite: {fileID: 250759997398443327, guid: 748228c72a99f1a409f120d6ffe013b7, type: 3}
+  item: {fileID: 11400000, guid: 70171d188274a5f43a668ced63e25f1d, type: 2}
+  sprite: {fileID: 250759997398443327, guid: c129b010ae5636743b7ed9e8bc02712c, type: 3}
 --- !u!58 &-4605376184827865645
 CircleCollider2D:
   m_ObjectHideFlags: 0
