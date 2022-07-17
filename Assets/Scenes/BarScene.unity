@@ -16943,6 +16943,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 1959645002314634046, guid: 22a386b0360d1554d8794690717fa4a0, type: 3}
+  npc1: {fileID: 1959645002314634046, guid: 5f97746c540e12a4b9f523fd7ff181c7, type: 3}
+  npc2: {fileID: 1959645002314634046, guid: e220db4d0c409604698f5c17f4f1d02b, type: 3}
+  npc3: {fileID: 1959645002314634046, guid: e65098d5522e21d479ef808cc2bc1c99, type: 3}
+  npc4: {fileID: 1959645002314634046, guid: d718a338c2118464c85c4b448e2928a3, type: 3}
 --- !u!1 &1383805330
 GameObject:
   m_ObjectHideFlags: 0
