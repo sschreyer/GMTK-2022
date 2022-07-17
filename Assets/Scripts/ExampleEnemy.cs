@@ -38,9 +38,6 @@ public class ExampleEnemy : MonoBehaviour
 
     IEnumerator Wait()
     {
-        int s = Random.Range(2,7);
-        yield return new WaitForSeconds(s);
-
         int n = Random.Range(0,3);
 
         // // instead of this, create sprite?
@@ -104,6 +101,9 @@ public class ExampleEnemy : MonoBehaviour
                 break;
         }
         transform.localScale = localScale;
+
+        int s = Random.Range(2,7);
+        yield return new WaitForSeconds(s);
 
         isWaiting = false;
     }
