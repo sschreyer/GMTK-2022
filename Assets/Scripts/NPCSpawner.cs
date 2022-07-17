@@ -15,8 +15,37 @@ public class NPCSpawner : MonoBehaviour
         Transform[] children = gameObject.GetComponentsInChildren<Transform>();
     
         List<int> prevNumbers = new List<int>();
-        // we make 
-        for (int i = 0; i < 4; i++) {
+        // set the upper bound of 1 based upon what day it is...
+        int iUpperBound = 4; 
+        switch(GameManager.Instance.GetWhichDay()) {
+            case 0:
+                iUpperBound = 4;
+                break; 
+            case 1:
+                iUpperBound = 6;
+                break; 
+            case 2:
+                iUpperBound = 8;
+                break;
+            case 3:
+                iUpperBound = 10;
+                break; 
+            case 4:
+                iUpperBound = 13; 
+                break;
+            case 5:
+                GameManager.Instance.Win();
+                break;
+            default:
+                break; 
+        }
+
+        // for my sanity
+        if (iUpperBound > numChildren) {
+            iUpperBound = numChildren;
+        }
+
+        for (int i = 0; i < iUpperBound; i++) {
             int n = Random.Range(0, numChildren);
             while (prevNumbers.Contains(n)) {
                 n = Random.Range(0, numChildren);
